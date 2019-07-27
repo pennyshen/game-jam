@@ -1,0 +1,20 @@
+.conversationContainer {
+  display: grid;
+  grid-template-columns: 400px auto;
+  margin: 80px;
+}
+
+.blurb {
+  padding-top: 5px;
+}
+
+.option {
+  border: none;
+  font-size: 16px;
+  display: block;
+  cursor: pointer;
+}
+
+div {
+  text-align: left;
+}
