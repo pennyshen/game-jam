@@ -16,10 +16,11 @@ class Options extends React.Component {
       <div>
         {this.props.options.map((option, index) => (
           <button
+            className="option"
             key={index}
             onClick={(e) => this.onOptionClick(option.id)}
           >
-            {option.message}
+            > {option.message}
           </button>
         ))}
       </div>
