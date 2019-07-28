@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+const constants = require('../lib/constants')
+
 class Dialogue extends React.PureComponent {
   static propTypes = {
     myName: PropTypes.string,
@@ -42,7 +44,7 @@ class Dialogue extends React.PureComponent {
       })
 
       this.displayNextMessage()
-    }, 700)
+    }, constants.messageDelay)
   }
 
   componentDidMount() {

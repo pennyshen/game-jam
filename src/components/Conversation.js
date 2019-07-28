@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Dialogue from './Dialogue';
 import Options from './Options'
 
+const constants = require('../lib/constants')
+
 class Conversation extends React.Component {
   static propTypes = {
     startingId: PropTypes.number,
@@ -67,12 +69,10 @@ class Conversation extends React.Component {
         message: this.getDialogue(id).messages[0],
       }))
       this.setState({ options })
-    }, 300)
+    }, constants.messageDelay)
   }
 
   scrollToBottom() {
-    console.log('scrolling')
-    console.log(this.messagesEnd)
     this.messagesEnd && this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
 
@@ -96,8 +96,7 @@ class Conversation extends React.Component {
               myName={this.props.myName}
               person={person}
               messages={messages}
-              isDisplaying={false}
-              // isDisplaying={dialogueIds.length === index + 1}
+              isDisplaying={constants.shouldDelayMessage && dialogueIds.length === index + 1}
               doneDisplaying={this.doneDisplaying}
               scrollToBottom={this.scrollToBottom}
               key={index}
