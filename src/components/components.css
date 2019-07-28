@@ -1,5 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100vh;
+}
+
 div {
   text-align: left;
+}
+
+.gameContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 button {
@@ -8,34 +26,44 @@ button {
   cursor: pointer;
 }
 
-.center {
-  display: flex;
-  justify-content: center;
-  height: 100vh;
+button:focus {
+  outline: none;
 }
 
 .button {
   border: 1px solid black;
   padding: 9px;
   text-align: center;
-  width: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
-/**
- * Profile
- */
-.profileName {
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.profileUnderline {
+.underline {
   display: block;
   height: 1px;
   border: 0;
   border-top: 1px solid #ccc;
   padding: 0;
   color: lightgrey;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+/**
+ * Profile
+ */
+.profile.button {
+  width: 100%;
+}
+
+.profileName {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.profile.underline {
   margin-block-start: 5px;
   margin-block-end: 5px;
 }
@@ -53,11 +81,10 @@ button {
  */
 
 .conversationContainer {
+  height: 100%;
   display: grid;
   grid-template-columns: 250px 350px;
   grid-column-gap: 200px;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .conversation {
@@ -66,8 +93,16 @@ button {
   padding-right: 20px;
 }
 
+.message {
+  padding-bottom: 10px;
+}
+
 .option {
   border: none;
+}
+
+.optionText {
+  text-decoration: underline;
 }
 
 .theirs {
@@ -75,6 +110,7 @@ button {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  padding-right: 60px;
 }
 
 .mine {
@@ -82,4 +118,30 @@ button {
   flex-direction: column;
   align-items: flex-end;
   text-align: right;
+  padding-left: 60px;
+}
+
+/**
+ * Match Screen
+ */
+.match {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.match {
+  text-align: center;
+}
+
+.match .underline {
+  width: 200px;
+  margin-block-start: 80px;
+  margin-block-end: 80px;
+}
+
+.chatHistory {
+  width: 200px;
+  text-align: left;
 }

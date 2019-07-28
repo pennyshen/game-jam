@@ -60,7 +60,7 @@ class Dialogue extends React.PureComponent {
     return (
       <div className={messageClass}>
         {messages.length > 0 && messages.map((message, index) => (
-          <div key={index}>{message}</div>
+          <div className="message" key={index}>{message}</div>
         ))}
         <br/>
       </div>

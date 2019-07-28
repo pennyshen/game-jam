@@ -37,7 +37,7 @@ class Profile extends React.Component {
     const buttonText = `Chat with ${profile.name}`
 
     return (
-      <div>
+      <div className="profile">
         <div className="profileName profileBottomSmall">{profile.name}</div>
         <div className="profileBottomLarge">{profile.gender} · {profile.age} · {profile.occupation}</div>
 
@@ -56,7 +56,7 @@ class Profile extends React.Component {
         <div>
           Looking for
         </div>
-        <hr className="profileUnderline"/>
+        <hr className="underline"/>
         <div className="profileBottomLarge">
           {profile.lookingFor}
         </div>
@@ -64,19 +64,17 @@ class Profile extends React.Component {
         <div>
           Hobbies
         </div>
-        <hr className="profileUnderline"/>
+        <hr className="underline"/>
         <div className="profileBottomLarge">
           {profile.hobbies}
         </div>
 
-        {this.state.shouldShowChatButton &&
-          <button
-            className="button"
+        <button
+            className={this.state.shouldShowChatButton ? 'button' : 'hidden'}
             onClick={(e) => this.showConversation()}
           >
             {buttonText}
-          </button>
-        }
+        </button>
       </div>
     )
   }
