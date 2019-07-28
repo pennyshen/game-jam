@@ -5,8 +5,6 @@ const constants = require('../lib/constants')
 
 class Dialogue extends React.PureComponent {
   static propTypes = {
-    myName: PropTypes.string,
-    person: PropTypes.string,
     messages: PropTypes.array,
     isDisplaying: PropTypes.bool,
     doneDisplaying: PropTypes.func,
@@ -58,12 +56,16 @@ class Dialogue extends React.PureComponent {
   render() {
     const messages = this.props.isDisplaying ?
       this.state.displayedMessages : this.props.messages
-    const messageClass = this.props.myName === this.props.person ? 'mine': 'theirs'
     return (
-      <div className={messageClass}>
-        {messages.length > 0 && messages.map((message, index) => (
-          <div className="message" key={index}>{message}</div>
-        ))}
+      <div>
+        {messages.length > 0 && messages.map((message, index) => {
+          const name = message[0]
+          const nameClass = name === constants.names.ME ? 'mine' : 'theirs'
+          const text = message[1]
+          return (
+            <div className={`message ${nameClass}`} key={index}>{text}</div>
+          )
+        })}
         <br/>
       </div>
     )

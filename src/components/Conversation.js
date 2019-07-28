@@ -7,10 +7,8 @@ const constants = require('../lib/constants')
 
 class Conversation extends React.Component {
   static propTypes = {
-    startingId: PropTypes.number,
     script: PropTypes.object,
-    myName: PropTypes.string,
-    endConversation: PropTypes.func,
+    tion: PropTypes.func,
   }
 
   constructor(props) {
@@ -19,20 +17,20 @@ class Conversation extends React.Component {
     this.doneDisplaying = this.doneDisplaying.bind(this)
     this.scrollToBottom = this.scrollToBottom.bind(this)
     this.state = {
-      dialogueIds: [this.props.startingId],
+      dialogueIds: [constants.startId],
       options: [],
     }
   }
 
   doneDisplaying() {
     // check to see if we need to automatically display next dialogue or show options
-    const optionIds = this.getCurrentDialogue().optionIds
+    const options = this.getCurrentDialogue().options
 
-    if (optionIds.length > 1) {
+    if (options.length > 1) {
       // show options
-      this.showOptions(optionIds)
-    } else if (optionIds.length === 1) {
-      this.displayNewDialogue(optionIds[0])
+      this.showOptions(options)
+    } else if (options.length === 1) {
+      this.displayNewDialogue(options[0])
     } else {
       this.props.endConversation(this.state.dialogueIds)
     }
@@ -62,13 +60,13 @@ class Conversation extends React.Component {
     return this.props.script[id]
   }
 
-  showOptions(optionIds) {
+  showOptions(options) {
     setTimeout(() => {
-      const options = optionIds.map((id) => ({
+      const optionsObj = options.map((id) => ({
         id,
-        message: this.getDialogue(id).messages[0],
+        message: this.getDialogue(id).messages[0][constants.message.TEXT_INDEX],
       }))
-      this.setState({ options })
+      this.setState({ options: optionsObj })
     }, constants.messageDelay)
   }
 
@@ -90,11 +88,9 @@ class Conversation extends React.Component {
     return (
       <div className="conversation">
         {dialogueIds.map((id, index) => {
-          const {person, messages} = this.getDialogue(id)
+          const {messages} = this.getDialogue(id)
           return (
             <Dialogue
-              myName={this.props.myName}
-              person={person}
               messages={messages}
               isDisplaying={constants.shouldDelayMessage && dialogueIds.length === index + 1}
               doneDisplaying={this.doneDisplaying}

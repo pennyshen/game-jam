@@ -4,8 +4,6 @@ import './components.css'
 import PassageScreen from './PassageScreen';
 
 const constants = require('../lib/constants')
-
-const script = require('../content/script1')
 const profiles = require('../content/profiles')
 
 class Game extends React.Component {
@@ -25,6 +23,10 @@ class Game extends React.Component {
        */
       chatHistory: []
     }
+  }
+
+  getScript(name) {
+    return require(`../content/${name}Script`)
   }
 
   showScreen(screen) {
@@ -49,13 +51,11 @@ class Game extends React.Component {
       throw new Error("Can't show new passage screen. No more profile")
     }
 
-    const startingId = 1
-
+    const profile = profiles[profileIndex]
     return (
       <PassageScreen
-        script={script}
-        profile={profiles[profileIndex]}
-        startingId={startingId}
+        script={this.getScript(profile.name)}
+        profile={profile}
         endConversation={(chatHistoryItem) => this.endConversation(chatHistoryItem)}
       />
     )

@@ -8,7 +8,6 @@ const constants = require('../lib/constants')
 
 class PassageScreen extends React.Component {
   static propTypes = {
-    startingId: PropTypes.number,
     script: PropTypes.object,
     profile: PropTypes.object,
     endConversation: PropTypes.func,
@@ -55,8 +54,6 @@ class PassageScreen extends React.Component {
         {this.state.shouldShowConversation &&
           <Conversation
             script={this.props.script}
-            startingId={this.props.startingId}
-            myName="Grace"
             endConversation={(dialogueIds) => this.endConversation(dialogueIds)}
           />
         }

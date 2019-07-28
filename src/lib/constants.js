@@ -8,4 +8,23 @@ module.exports = {
   messageDelay: 1000,
   endConversationDelay: 5000,
   fadeOutDelay: 3000,
+
+  names: {
+    ME: 'me',
+    MONA: 'Mona',
+    ZACK: 'Zack',
+    ELI: 'Eli',
+  },
+
+  startId: 'start',
+
+  message: {
+    NAME_INDEX: 0,
+    TEXT_INDEX: 1,
+  },
+
+  result: {
+    DATE: 'date',
+    NO_DATE: 'noDate',
+  }
 }
