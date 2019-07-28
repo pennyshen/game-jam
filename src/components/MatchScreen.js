@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Options from './Options'
 import './components.css'
 
 const constants = require('../lib/constants')

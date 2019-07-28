@@ -20,7 +20,7 @@ class Options extends React.Component {
             key={index}
             onClick={(e) => this.onOptionClick(option.id)}
           >
-            > <span class="optionText">{option.message}</span>
+            > <span className="optionText">{option.message}</span>
           </button>
         ))}
       </div>
