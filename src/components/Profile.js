@@ -14,10 +14,28 @@ class Profile extends React.Component {
      * hobbies
      */
     profile: PropTypes.object,
+    showConversation: PropTypes.func,
+  }
+
+  constructor(props) {
+    super(props)
+    this.showConversation = this.showConversation.bind(this)
+    this.state = {
+      shouldShowChatButton: true,
+    }
+  }
+
+  showConversation() {
+    this.setState({
+      shouldShowChatButton: false,
+    })
+    this.props.showConversation()
   }
 
   render() {
     const profile = this.props.profile
+    const buttonText = `Chat with ${profile.name}`
+
     return (
       <div>
         <div className="profileName profileBottomSmall">{profile.name}</div>
@@ -50,6 +68,15 @@ class Profile extends React.Component {
         <div className="profileBottomLarge">
           {profile.hobbies}
         </div>
+
+        {this.state.shouldShowChatButton &&
+          <button
+            className="button"
+            onClick={(e) => this.showConversation()}
+          >
+            {buttonText}
+          </button>
+        }
       </div>
     )
   }
