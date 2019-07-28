@@ -50,6 +50,22 @@ button:focus {
   visibility: hidden;
 }
 
+.fadeOut {
+  animation: fadeout 3s forwards;
+  -moz-animation: fadeout 3s forwards; /* Firefox */
+  -webkit-animation: fadeout 3s forwards; /* Safari and Chrome */
+  -o-animation: fadeout 3s forwards; /* Opera */
+}
+
+@keyframes fadeout {
+  from {
+      opacity: 1;
+  }
+  to {
+      opacity: 0;
+  }
+}
+
 /**
  * Profile
  */

@@ -19,6 +19,7 @@ class PassageScreen extends React.Component {
     this.showConversation = this.showConversation.bind(this)
     this.state = {
       shouldShowConversation: false,
+      transitionCSS: ''
     }
   }
 
@@ -30,17 +31,23 @@ class PassageScreen extends React.Component {
 
   endConversation(dialogueIds) {
     setTimeout(() => {
-      this.props.endConversation({
-        dialogueIds,
-        profile: this.props.profile,
+      this.setState({
+        transitionCSS: 'fadeOut',
       })
-    }, constants.endConversationDelay)
+
+      setTimeout(() => {
+        this.props.endConversation({
+          dialogueIds,
+          profile: this.props.profile,
+        })
+      }, constants.endConversationDelay)
+    }, constants.fadeOutDelay)
   }
 
   render() {
 
     return (
-      <div className="conversationContainer">
+      <div className={`conversationContainer ${this.state.transitionCSS}`}>
         <Profile
           profile={this.props.profile}
           showConversation={this.showConversation}
