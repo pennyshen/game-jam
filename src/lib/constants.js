@@ -6,7 +6,7 @@ module.exports = {
   },
 
   shouldDelayMessage: true,
-  messageDelay: 1000,
+  messageDelay: 2000,
   endConversationDelay: 5000,
   fadeOutDelay: 3000,
 
