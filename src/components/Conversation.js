@@ -10,6 +10,7 @@ class Conversation extends React.Component {
     startingId: PropTypes.number,
     script: PropTypes.object,
     myName: PropTypes.string,
+    endConversation: PropTypes.func,
   }
 
   constructor(props) {
@@ -20,6 +21,20 @@ class Conversation extends React.Component {
     this.state = {
       dialogueIds: [this.props.startingId],
       options: [],
+    }
+  }
+
+  doneDisplaying() {
+    // check to see if we need to automatically display next dialogue or show options
+    const optionIds = this.getCurrentDialogue().optionIds
+
+    if (optionIds.length > 1) {
+      // show options
+      this.showOptions(optionIds)
+    } else if (optionIds.length === 1) {
+      this.displayNewDialogue(optionIds[0])
+    } else {
+      this.props.endConversation(this.state.dialogueIds)
     }
   }
 
@@ -35,21 +50,6 @@ class Conversation extends React.Component {
       ],
       options: [],  // hide options
     })
-  }
-
-  doneDisplaying() {
-    // check to see if we need to automatically display next dialogue or show options
-    const optionIds = this.getCurrentDialogue().optionIds
-
-    if (optionIds.length > 1) {
-      // show options
-      this.showOptions(optionIds)
-    } else if (optionIds.length === 1) {
-      this.displayNewDialogue(optionIds[0])
-    } else {
-      // end of conversation!
-      console.log('convo ended!!')
-    }
   }
 
   getCurrentDialogue() {

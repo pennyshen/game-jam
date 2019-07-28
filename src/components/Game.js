@@ -15,7 +15,6 @@ class Game extends React.Component {
 
     this.state = {
       screen: constants.screens.MATCH_SCREEN,
-      // screen: constants.screens.PASSAGE_SCREEN,
 
       /**
        * Each chat history item is:
@@ -24,10 +23,7 @@ class Game extends React.Component {
        *  profile,
        * }
        */
-      chatHistory: [{
-        dialogueIds: [1, 2, 3, 4, 5],
-        profile: profiles[0],
-      }]
+      chatHistory: []
     }
   }
 
@@ -60,8 +56,16 @@ class Game extends React.Component {
         script={script}
         profile={profiles[profileIndex]}
         startingId={startingId}
+        endConversation={(chatHistoryItem) => this.endConversation(chatHistoryItem)}
       />
     )
+  }
+
+  endConversation(chatHistoryItem) {
+    this.setState({
+      screen:  constants.screens.MATCH_SCREEN,
+      chatHistory: [...this.state.chatHistory, chatHistoryItem]
+    })
   }
 
   getScreenComponent() {

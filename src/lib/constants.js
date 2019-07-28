@@ -3,6 +3,7 @@ module.exports = {
     MATCH_SCREEN: 'match',
     PASSAGE_SCREEN: 'passage',
   },
-  shouldDelayMessage: true,
+  shouldDelayMessage: false,
   messageDelay: 1000,
+  endConversationDelay: 2000,
 }

@@ -4,11 +4,14 @@ import Profile from './Profile';
 import PropTypes from 'prop-types'
 import './components.css';
 
+const constants = require('../lib/constants')
+
 class PassageScreen extends React.Component {
   static propTypes = {
     startingId: PropTypes.number,
     script: PropTypes.object,
     profile: PropTypes.object,
+    endConversation: PropTypes.func,
   }
 
   constructor(props) {
@@ -25,6 +28,15 @@ class PassageScreen extends React.Component {
     })
   }
 
+  endConversation(dialogueIds) {
+    setTimeout(() => {
+      this.props.endConversation({
+        dialogueIds,
+        profile: this.props.profile,
+      })
+    }, constants.endConversationDelay)
+  }
+
   render() {
 
     return (
@@ -38,6 +50,7 @@ class PassageScreen extends React.Component {
             script={this.props.script}
             startingId={this.props.startingId}
             myName="Grace"
+            endConversation={(dialogueIds) => this.endConversation(dialogueIds)}
           />
         }
       </div>
