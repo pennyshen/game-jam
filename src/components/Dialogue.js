@@ -1,13 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Message from './Message'
 
 class Dialogue extends React.PureComponent {
   static propTypes = {
+    myName: PropTypes.string,
     person: PropTypes.string,
     messages: PropTypes.array,
     isDisplaying: PropTypes.bool,
     doneDisplaying: PropTypes.func,
+    scrollToBottom: PropTypes.func,
   }
 
   constructor(props) {
@@ -44,17 +45,22 @@ class Dialogue extends React.PureComponent {
     }, 700)
   }
 
+  componentDidMount() {
+    this.props.scrollToBottom()
+  }
+
+  componentDidUpdate() {
+    this.props.scrollToBottom()
+  }
+
   render() {
     const messages = this.props.isDisplaying ?
-    this.state.displayedMessages : this.props.messages
+      this.state.displayedMessages : this.props.messages
+    const messageClass = this.props.myName === this.props.person ? 'mine': 'theirs'
     return (
-      <div>
+      <div className={messageClass}>
         {messages.length > 0 && messages.map((message, index) => (
-          <Message
-            name={this.props.person}
-            message={message}
-            key={index}
-          />
+          <div key={index}>{message}</div>
         ))}
         <br/>
       </div>

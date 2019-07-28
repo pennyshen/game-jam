@@ -1,11 +1,56 @@
-.conversationContainer {
-  display: grid;
-  grid-template-columns: 400px auto;
-  margin: 80px;
+div {
+  text-align: left;
 }
 
-.blurb {
-  padding-top: 5px;
+.center {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+
+/**
+ * Profile
+ */
+.profileName {
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.profileUnderline {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  padding: 0;
+  color: lightgrey;
+  margin-block-start: 5px;
+  margin-block-end: 5px;
+}
+
+.profileBottomLarge {
+  padding-bottom: 35px;
+}
+
+.profileBottomSmall {
+  padding-bottom: 5px;
+}
+
+/**
+ * Conversation
+ */
+
+.conversationContainer {
+  display: grid;
+  grid-template-columns: 250px 350px;
+  grid-column-gap: 200px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.conversation {
+  max-height: inherit;
+  overflow-y: scroll;
+  padding-right: 20px;
 }
 
 .option {
@@ -15,6 +60,16 @@
   cursor: pointer;
 }
 
-div {
+.theirs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   text-align: left;
+}
+
+.mine {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
 }

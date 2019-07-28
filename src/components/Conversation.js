@@ -14,6 +14,7 @@ class Conversation extends React.Component {
     super(props)
     this.onOptionClick = this.onOptionClick.bind(this)
     this.doneDisplaying = this.doneDisplaying.bind(this)
+    this.scrollToBottom = this.scrollToBottom.bind(this)
     this.state = {
       dialogueIds: [this.props.startingId],
       options: [],
@@ -67,22 +68,39 @@ class Conversation extends React.Component {
         message: this.getDialogue(id).messages[0],
       }))
       this.setState({ options })
-    }, 500)
+    }, 300)
+  }
+
+  scrollToBottom() {
+    console.log('scrolling')
+    console.log(this.messagesEnd)
+    this.messagesEnd && this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
+
+  componentDidMount() {
+    this.scrollToBottom();
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom();
   }
 
   render() {
     const dialogueIds = this.state.dialogueIds
 
     return (
-      <div>
+      <div className="conversation">
         {dialogueIds.map((id, index) => {
           const {person, messages} = this.getDialogue(id)
           return (
             <Dialogue
+              myName={this.props.myName}
               person={person}
               messages={messages}
-              isDisplaying={dialogueIds.length === index + 1}
+              isDisplaying={false}
+              // isDisplaying={dialogueIds.length === index + 1}
               doneDisplaying={this.doneDisplaying}
+              scrollToBottom={this.scrollToBottom}
               key={index}
             />
           )
@@ -94,6 +112,10 @@ class Conversation extends React.Component {
             onOptionClick={this.onOptionClick}
           />
         }
+
+        <div style={{ float:"left", clear: "both" }}
+             ref={(el) => { this.messagesEnd = el; }}>
+        </div>
       </div>
     )
   }

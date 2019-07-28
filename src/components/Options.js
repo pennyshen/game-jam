@@ -13,7 +13,7 @@ class Options extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="mine">
         {this.props.options.map((option, index) => (
           <button
             className="option"
