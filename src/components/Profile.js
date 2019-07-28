@@ -8,7 +8,10 @@ class Profile extends React.Component {
      * name
      * age
      * gender
+     * occupation
      * blurb
+     * looking for
+     * hobbies
      */
     profile: PropTypes.object,
   }
@@ -17,12 +20,35 @@ class Profile extends React.Component {
     const profile = this.props.profile
     return (
       <div>
-        <div>{profile.name}, {profile.age}</div>
-        <div>{profile.gender}</div>
-        <div className="blurb">
-          {profile.blurb.map((line, index) => (
-            <div>{line}</div>
-          ))}
+        <div className="profileName profileBottomSmall">{profile.name}</div>
+        <div className="profileBottomLarge">{profile.gender} · {profile.age} · {profile.occupation}</div>
+
+        <div className="profileBlurb profileBottomLarge">
+          {profile.blurb.map((line, index) => {
+            const startQuote = index === 0 ? '"' : ''
+            const endQuote = index === profile.blurb.length - 1 ? '"': ''
+            return (
+              <div key={index}>
+                {startQuote}{line}{endQuote}
+              </div>
+            )
+          })}
+        </div>
+
+        <div>
+          Looking for
+        </div>
+        <hr className="profileUnderline"/>
+        <div className="profileBottomLarge">
+          {profile.lookingFor}
+        </div>
+
+        <div>
+          Hobbies
+        </div>
+        <hr className="profileUnderline"/>
+        <div className="profileBottomLarge">
+          {profile.hobbies}
         </div>
       </div>
     )
