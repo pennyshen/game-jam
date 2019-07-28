@@ -2,9 +2,10 @@ module.exports = {
   screens: {
     MATCH_SCREEN: 'match',
     PASSAGE_SCREEN: 'passage',
+    ENDING_SCREEN: 'ending',
   },
 
-  shouldDelayMessage: false,
+  shouldDelayMessage: true,
   messageDelay: 1000,
   endConversationDelay: 5000,
   fadeOutDelay: 3000,

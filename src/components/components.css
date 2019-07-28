@@ -66,6 +66,17 @@ button:focus {
   }
 }
 
+.endingScreen {
+  width: 500px;
+}
+
+.endingBottom {
+  padding-bottom: 10px;
+}
+
+.endingButton {
+  margin-top: 20px;
+}
 /**
  * Profile
  */
@@ -89,6 +100,10 @@ button:focus {
 
 .profileBottomSmall {
   padding-bottom: 5px;
+}
+
+.profile.match.button {
+  margin-bottom: 10px;
 }
 
 /**

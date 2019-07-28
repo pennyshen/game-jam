@@ -1,5 +1,16 @@
 module.exports = [
   {
+    name: "Zack",
+    age: "24",
+    gender: "Male",
+    occupation: "Entrepreneur",
+    blurb: [
+      "Just a chill guy."
+    ],
+    lookingFor: "someone who makes me laugh, has a nice smile, not judgmental",
+    hobbies: "dance. Fortnite. Reddit. parties. anime. BTS.",
+  },
+  {
     name: "Mona",
     age: "22",
     gender: "Female",
@@ -12,26 +23,15 @@ module.exports = [
     lookingFor: "someone who can share the same dream with me.",
     hobbies: "walking, drinking, writing",
   },
-  {
-    name: "Zack",
-    age: "24",
-    gender: "Male",
-    occupation: "Entrepreneur",
-    blurb: [
-      "Just a chill guy."
-    ],
-    lookingFor: "someone who makes me laugh, has a nice smile, not judgmental",
-    hobbies: "dance. Fortnite. Reddit. parties. anime. BTS.",
-  },
-  {
-    name: "Eli",
-    age: "25",
-    gender: "Male",
-    occupation: "Engineer",
-    blurb: [
-      "I hustle, I keep it lit, swipe right if you're into anime."
-    ],
-    lookingFor: "a beautiful soul, someone chill as f*** but also down to get lit.",
-    hobbies: "gym. tattoos. startups. basketball.",
-  },
+  // {
+  //   name: "Eli",
+  //   age: "25",
+  //   gender: "Male",
+  //   occupation: "Engineer",
+  //   blurb: [
+  //     "I hustle, I keep it lit, swipe right if you're into anime."
+  //   ],
+  //   lookingFor: "a beautiful soul, someone chill as f*** but also down to get lit.",
+  //   hobbies: "gym. tattoos. startups. basketball.",
+  // },
 ]

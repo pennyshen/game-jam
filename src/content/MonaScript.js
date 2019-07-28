@@ -42,7 +42,7 @@ module.exports = {
       [ME,   "Now youre joking for sure"],
 
       [MONA, "Haha, you caught me."],
-      [MONA, "I'm actually a barista"],
+      [MONA, "I'm just a barista"],
     ],
     options: [
       "barista",
@@ -51,9 +51,9 @@ module.exports = {
 
   barista: {
     messages: [
-      [ME,   "...so you're a barista?"],
+      [ME,   " Yeah I saw you're a barista, right?"],
 
-      [MONA, "Bingo!"],
+      [MONA, "Yup, been at my barista job the whole day."],
 
       [ME, "nice! i love coffee"],
 
@@ -137,7 +137,7 @@ module.exports = {
   enoughAboutMe: {
     messages: [
       [MONA, "But enough about me!"],
-      [MONA, "What do you do?"],
+      [MONA, "What's going on with you?"],
     ],
     options: [
       "hrTechCompany",
@@ -197,7 +197,6 @@ module.exports = {
       [ME,   "maybe you can show me your writing sometime"],
       [ME,   "over some coffee? ;)"],
       [MONA, "Haha, I can brew you some"],
-      [MONA, "Tomorrow?"],
       [ME,   "sounds good!"],
     ],
     options: [],
