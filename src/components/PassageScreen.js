@@ -1,9 +1,16 @@
 import React from 'react'
 import Conversation from './Conversation';
-import './components.css';
 import Profile from './Profile';
+import PropTypes from 'prop-types'
+import './components.css';
 
-class Passage extends React.Component {
+class PassageScreen extends React.Component {
+  static propTypes = {
+    startingId: PropTypes.number,
+    script: PropTypes.object,
+    profile: PropTypes.object,
+  }
+
   constructor(props) {
     super(props)
     this.showConversation = this.showConversation.bind(this)
@@ -19,20 +26,17 @@ class Passage extends React.Component {
   }
 
   render() {
-    const script = require('../scripts/script1')
-    const startingId = 1
-    const profiles = require('../scripts/profiles')
 
     return (
       <div className="conversationContainer">
         <Profile
-          profile={profiles[2]}
+          profile={this.props.profile}
           showConversation={this.showConversation}
         />
         {this.state.shouldShowConversation &&
           <Conversation
-            script={script}
-            startingId={startingId}
+            script={this.props.script}
+            startingId={this.props.startingId}
             myName="Grace"
           />
         }
@@ -41,4 +45,4 @@ class Passage extends React.Component {
   }
 }
 
-export default Passage
+export default PassageScreen
