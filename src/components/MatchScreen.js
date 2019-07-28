@@ -1,13 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Options from './Options'
 import './components.css'
 
 const constants = require('../lib/constants')
 
 class MatchScreen extends React.Component {
   static propTypes = {
+    /**
+     * Each chat history item is:
+     * {
+     *  dialogueIds,
+     *  profile,
+     * }
+     */
     chatHistory: PropTypes.array,
     showScreen: PropTypes.func,
+  }
+
+  showChatHistory(item) {
+    console.log('no-op for now')
   }
 
   render() {
@@ -16,7 +28,7 @@ class MatchScreen extends React.Component {
     return (
       <React.Fragment>
         <button
-          className="button"
+          className="match button"
           onClick={(e) => this.props.showScreen(constants.screens.PASSAGE_SCREEN)}
         >
           See my match for today
@@ -24,10 +36,19 @@ class MatchScreen extends React.Component {
 
         {chatHistory.length > 0 && (
           <React.Fragment>
-            <hr className="underline"/>
+            <hr className="match underline"/>
 
-            <div class="chatHistory">
+            <div className="chatHistory">
               <b>Chat history</b>
+              {chatHistory.map((item, index) => (
+                <button
+                  className="option"
+                  key={index}
+                  onClick={(e) => this.showChatHistory(item)}
+                >
+                  > <span className="optionText">{item.profile.name}</span>
+                </button>
+              ))}
             </div>
           </React.Fragment>
         )}
