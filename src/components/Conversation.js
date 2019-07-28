@@ -38,7 +38,6 @@ class Conversation extends React.Component {
   doneDisplaying() {
     // check to see if we need to automatically display next dialogue or show options
     const optionIds = this.getCurrentDialogue().optionIds
-    console.log(`> done displaying, current: ${optionIds[0]}`)
 
     if (optionIds.length > 1) {
       // show options
