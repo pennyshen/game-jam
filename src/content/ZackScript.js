@@ -105,14 +105,18 @@ module.exports = {
       [ZACK, "but fuck there are some dancers on AFX who are monsters"],
       [ME, "talking about yourself?"],
       [ZACK, "lol i guess"],
+      [ZACK, "if you were in afx, we must have mutual friends?"],
+      [ME, "oh i wasn't in afx... i joined super recently. after the split."],
+      [ZACK, "still wouldn't be surprised if we had mutual friends"],
     ],
     options: [
-      "whatElseDoYouLike",
+      "movedRecently",
     ],
   },
 
   whatElseDoYouLike: {
     messages: [
+      [ZACK, "u didn't say much on ur profile so i was curious about u"],
       [ZACK, "what else do u like to do?"],
     ],
     options: [
@@ -141,13 +145,8 @@ module.exports = {
       [ZACK, "no, i dont think i have the patience for that haha"],
       [ZACK, "but it seems cool"],
       [ME, "yeah it's fun!"],
-      [ZACK, "u didn't say much on ur profile so i was curious about u"],
-      [ZACK, "if you were in afx, we must have mutual friends?"],
-      [ME, "oh i wasn't in afx... i joined super recently. after the split."],
-      [ZACK, "still wouldn't be surprised if we had mutual friends"],
     ],
     options: [
-      "movedRecently",
       "gottaGoBye",
     ],
   },
