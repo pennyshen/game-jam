@@ -2,19 +2,15 @@
   box-sizing: border-box;
 }
 
-#root {
-  height: 100vh;
-}
-
 div {
   text-align: left;
 }
 
 .gameContainer {
+  height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  height: 100%;
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -35,6 +31,7 @@ button:focus {
   text-align: center;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 10px;
 }
 
 .underline {
@@ -69,6 +66,9 @@ button:focus {
 /**
  * Profile
  */
+.profile {
+  height: 430px;
+}
 .profile.button {
   width: 100%;
 }
@@ -91,14 +91,12 @@ button:focus {
   padding-bottom: 5px;
 }
 
-.profile.match.button {
-  margin-bottom: 10px;
-}
-
 /**
  * Conversation
  */
-
+.conversation {
+  margin-bottom: 30px;
+}
 .conversationContainer {
   height: 100%;
   display: grid;
@@ -168,6 +166,10 @@ button:focus {
   margin-top: 10px;
 }
 
+.meetWith .button {
+  margin-bottom: 20px;
+}
+
 /**
  * Ending screen
  */
@@ -176,7 +178,7 @@ button:focus {
 }
 
 .endingScreen .paragraph {
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 .endingScreen .button {
