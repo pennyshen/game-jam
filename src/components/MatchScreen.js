@@ -23,10 +23,25 @@ class MatchScreen extends React.Component {
     console.log('no-op for now')
   }
 
-  render() {
-    const chatHistory = this.props.chatHistory
+  getMeetWithPeopleButtons() {
+    return (
+      <div className="meetWith">
+        {this.props.profiles.map((profile, index) => (
+          <React.Fragment key={index}>
+            <button
+              className="button"
+              onClick={(e) => this.props.meetWithPerson(profile)}
+            >
+              Meet with {profile.name}
+            </button>
+          </React.Fragment>
+        ))}
+      </div>
+    )
+  }
 
-    const goToMatchButton = (
+  getSeeMyMatchButton() {
+    return (
       <button
         className="match button"
         onClick={(e) => this.props.showScreen(constants.screens.PASSAGE_SCREEN)}
@@ -34,24 +49,15 @@ class MatchScreen extends React.Component {
         See my match for today
       </button>
     )
+  }
 
-    const meetPeopleButtons = this.props.profiles.map((profile, index) => (
-      <React.Fragment key={index}>
-        <button
-          className="match button profile"
-          onClick={(e) => this.props.meetWithPerson(profile)}
-        >
-          Meet with {profile.name}
-        </button>
-      </React.Fragment>
-    ))
-
-    const topSection = chatHistory.length < this.props.profiles.length ?
-      goToMatchButton : meetPeopleButtons
+  render() {
+    const chatHistory = this.props.chatHistory
 
     return (
       <React.Fragment>
-        {topSection}
+        {chatHistory.length < this.props.profiles.length ?
+          this.getSeeMyMatchButton() : this.getMeetWithPeopleButtons()}
 
         {chatHistory.length > 0 && (
           <React.Fragment>
@@ -62,14 +68,7 @@ class MatchScreen extends React.Component {
               {chatHistory.map((item, index) => (
                 <div className="option" key={index}>
                   > {item.profile.name}
-                </div>                
-                // <button
-                //   className="option"
-                //   key={index}
-                //   onClick={(e) => this.showChatHistory(item)}
-                // >
-                //   > <span className="optionText">{item.profile.name}</span>
-                // </button>
+                </div>
               ))}
             </div>
           </React.Fragment>
