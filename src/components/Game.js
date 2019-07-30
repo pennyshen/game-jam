@@ -4,7 +4,10 @@ import PassageScreen from './PassageScreen';
 import EndingScreen from './EndingScreen';
 import './components.css'
 
-const constants = require('../lib/constants')
+const {
+  screens,
+  result,
+} = require('../lib/constants')
 const profiles = require('../content/profiles')
 
 class Game extends React.Component {
@@ -13,7 +16,7 @@ class Game extends React.Component {
     this.showScreen = this.showScreen.bind(this)
 
     this.state = {
-      screen: constants.screens.MATCH_SCREEN,
+      screen: screens.MATCH_SCREEN,
 
       /**
        * Each chat history item is:
@@ -64,25 +67,25 @@ class Game extends React.Component {
   meetWithPerson(profile) {
     this.setState({
       endingScreenProfile: profile,
-      screen: constants.screens.ENDING_SCREEN,
+      screen: screens.ENDING_SCREEN,
     })
   }
 
   goBack() {
-    this.showScreen(constants.screens.MATCH_SCREEN)
+    this.showScreen(screens.MATCH_SCREEN)
   }
 
   getEndingTexts(profile) {
-    const result = this.getResult(profile)
+    const _result = this.getResult(profile)
 
-    if (result === constants.result.NO_DATE) {
+    if (_result === result.NO_DATE) {
       return [
         `You asked ${profile.name} out a few times, but there was no response.`,
         'You are ghosted.'
       ]
     } else {
       const endings = require('../content/endings')
-      return endings[profile.name][constants.result.DATE]
+      return endings[profile.name][result.DATE]
     }
   }
 
@@ -113,21 +116,21 @@ class Game extends React.Component {
 
   endConversation(chatHistoryItem) {
     this.setState({
-      screen:  constants.screens.MATCH_SCREEN,
+      screen:  screens.MATCH_SCREEN,
       chatHistory: [...this.state.chatHistory, chatHistoryItem]
     })
   }
 
   getScreenComponent() {
     switch(this.state.screen) {
-      case constants.screens.MATCH_SCREEN:
+      case screens.MATCH_SCREEN:
         return this.getMatchScreen()
-      case constants.screens.PASSAGE_SCREEN:
+      case screens.PASSAGE_SCREEN:
         return this.getPassageScreen()
-      case constants.screens.ENDING_SCREEN:
+      case screens.ENDING_SCREEN:
         return this.getEndingScreen()
       default:
-        return null
+        throw new Error(`No screen defined for ${this.state.screen}`)
     }
   }
 
