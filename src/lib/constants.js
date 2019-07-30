@@ -5,6 +5,7 @@ module.exports = {
     ENDING_SCREEN: 'ending',
   },
 
+  // shouldDelayMessage: false,
   shouldDelayMessage: true,
   messageDelay: 2000,
   endConversationDelay: 5000,
