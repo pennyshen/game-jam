@@ -5,9 +5,12 @@ module.exports = {
     ENDING_SCREEN: 'ending',
   },
 
-  // shouldDelayMessage: false,
   shouldDelayMessage: true,
-  messageDelay: 2000,
+  defaultMessageDelay: 2000,
+  // shorter delay after user clicks on a button so it's less confusing
+  // whether the click actually worked or not
+  messageDelayAfterClick: 500,
+
   endConversationDelay: 5000,
   fadeOutDelay: 3000,
 

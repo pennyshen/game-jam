@@ -9,6 +9,7 @@ class Dialogue extends React.PureComponent {
     isDisplaying: PropTypes.bool,
     doneDisplaying: PropTypes.func,
     scrollToBottom: PropTypes.func,
+    firstMessageDelay: PropTypes.number,
   }
 
   constructor(props) {
@@ -17,13 +18,13 @@ class Dialogue extends React.PureComponent {
       displayedMessages: [],
     }
     if (this.props.isDisplaying) {
-      this.displayNextMessage()
+      this.displayNextMessage(this.props.firstMessageDelay)
     } else {
       this.props.doneDisplaying()
     }
   }
 
-  displayNextMessage() {
+  displayNextMessage(overrideDelay) {
     const displayedMessages = this.state.displayedMessages
     const messages = this.props.messages
 
@@ -32,6 +33,7 @@ class Dialogue extends React.PureComponent {
       return
     }
 
+    const delay = overrideDelay || constants.defaultMessageDelay
     setTimeout(() => {
       const nextMessage = messages[displayedMessages.length]
       this.setState({
@@ -42,7 +44,7 @@ class Dialogue extends React.PureComponent {
       })
 
       this.displayNextMessage()
-    }, constants.messageDelay)
+    }, delay)
   }
 
   componentDidMount() {

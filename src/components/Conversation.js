@@ -19,6 +19,7 @@ class Conversation extends React.Component {
     this.state = {
       dialogueIds: [constants.startId],
       options: [],
+      firstMessageDelay: constants.messageDelayAfterClick,
     }
   }
 
@@ -37,16 +38,17 @@ class Conversation extends React.Component {
   }
 
   onOptionClick(id) {
-    this.displayNewDialogue(id)
+    this.displayNewDialogue(id, constants.messageDelayAfterClick)
   }
 
-  displayNewDialogue(id) {
+  displayNewDialogue(id, firstMessageDelay) {
     this.setState({
       dialogueIds: [
         ...this.state.dialogueIds,
         id,
       ],
       options: [],  // hide options
+      firstMessageDelay,
     })
   }
 
@@ -67,7 +69,7 @@ class Conversation extends React.Component {
         message: this.getDialogue(id).messages[0][constants.message.TEXT_INDEX],
       }))
       this.setState({ options: optionsObj })
-    }, constants.messageDelay)
+    }, constants.messageOptionDelay)
   }
 
   scrollToBottom() {
@@ -93,6 +95,7 @@ class Conversation extends React.Component {
             <Dialogue
               messages={messages}
               isDisplaying={constants.shouldDelayMessage && dialogueIds.length === index + 1}
+              firstMessageDelay={this.state.firstMessageDelay}
               doneDisplaying={this.doneDisplaying}
               scrollToBottom={this.scrollToBottom}
               key={index}
