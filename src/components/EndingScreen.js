@@ -12,12 +12,12 @@ class EndingScreen extends React.Component {
     return (
       <div className="endingScreen">
         {this.props.texts.map((text, index) => (
-          <div className="endingBottom" key={index}>
+          <div className="paragraph" key={index}>
             {text}
           </div>
         ))}
         <button
-          className="match button profile endingButton"
+          className="button"
           onClick={(e) => this.props.goBack()}
         >
           Go back

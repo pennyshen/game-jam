@@ -66,17 +66,6 @@ button:focus {
   }
 }
 
-.endingScreen {
-  width: 500px;
-}
-
-.endingBottom {
-  padding-bottom: 10px;
-}
-
-.endingButton {
-  margin-top: 20px;
-}
 /**
  * Profile
  */
@@ -177,4 +166,20 @@ button:focus {
 
 .chatHistory .option:first-of-type {
   margin-top: 10px;
+}
+
+/**
+ * Ending screen
+ */
+.endingScreen {
+  width: 500px;
+}
+
+.endingScreen .paragraph {
+  padding-bottom: 10px;
+}
+
+.endingScreen .button {
+  margin-top: 20px;
+  margin-bottom: 50px;
 }
