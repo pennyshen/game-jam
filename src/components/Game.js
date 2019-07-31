@@ -9,6 +9,7 @@ const {
   result,
 } = require('../lib/constants')
 const profiles = require('../content/profiles')
+const endings = require('../content/endings')
 
 class Game extends React.Component {
   constructor(props) {
@@ -84,7 +85,6 @@ class Game extends React.Component {
         'You are ghosted.'
       ]
     } else {
-      const endings = require('../content/endings')
       return endings[profile.name][result.DATE]
     }
   }
