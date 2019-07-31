@@ -10,7 +10,7 @@ const {
   NO_DATE,
 } = constants.result
 
-module.exports = {
+const endings = {
   [MONA]: {
     [DATE]: [
       [`"I met with Mona on a sunny afternoon at her cafe. We sat down and chatted about her writing project.`],
@@ -40,3 +40,5 @@ module.exports = {
     [NO_DATE]: [],
   },
 }
+
+export default endings

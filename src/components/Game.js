@@ -4,12 +4,13 @@ import PassageScreen from './PassageScreen';
 import EndingScreen from './EndingScreen';
 import './components.css'
 
+import endings from '../content/endings'
+
 const {
   screens,
   result,
 } = require('../lib/constants')
 const profiles = require('../content/profiles')
-const endings = require('../content/endings')
 
 class Game extends React.Component {
   constructor(props) {
