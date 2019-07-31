@@ -69,7 +69,7 @@ class Conversation extends React.Component {
         message: this.getDialogue(id).messages[0][constants.message.TEXT_INDEX],
       }))
       this.setState({ options: optionsObj })
-    }, constants.messageOptionDelay)
+    }, constants.defaultMessageDelay)
   }
 
   scrollToBottom() {
