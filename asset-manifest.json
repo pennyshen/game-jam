@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/game-jam/static/css/main.6fea1ff5.chunk.css",
-    "main.js": "/game-jam/static/js/main.31368002.chunk.js",
-    "main.js.map": "/game-jam/static/js/main.31368002.chunk.js.map",
+    "main.js": "/game-jam/static/js/main.5a083279.chunk.js",
+    "main.js.map": "/game-jam/static/js/main.5a083279.chunk.js.map",
     "runtime~main.js": "/game-jam/static/js/runtime~main.b23950a4.js",
     "runtime~main.js.map": "/game-jam/static/js/runtime~main.b23950a4.js.map",
-    "static/js/2.fec6e9fd.chunk.js": "/game-jam/static/js/2.fec6e9fd.chunk.js",
-    "static/js/2.fec6e9fd.chunk.js.map": "/game-jam/static/js/2.fec6e9fd.chunk.js.map",
+    "static/js/2.68955741.chunk.js": "/game-jam/static/js/2.68955741.chunk.js",
+    "static/js/2.68955741.chunk.js.map": "/game-jam/static/js/2.68955741.chunk.js.map",
     "index.html": "/game-jam/index.html",
-    "precache-manifest.4e1e92d0925e14bb416c4d921ac3e292.js": "/game-jam/precache-manifest.4e1e92d0925e14bb416c4d921ac3e292.js",
+    "precache-manifest.98a8e63687eed81c210237dcae4edaa1.js": "/game-jam/precache-manifest.98a8e63687eed81c210237dcae4edaa1.js",
     "service-worker.js": "/game-jam/service-worker.js",
     "static/css/main.6fea1ff5.chunk.css.map": "/game-jam/static/css/main.6fea1ff5.chunk.css.map"
   }

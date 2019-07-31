@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f1c8dd61fea9895de92d4c8981504784",
+    "revision": "3f3eabd059be716302ce48cd867ddd2c",
     "url": "/game-jam/index.html"
   },
   {
-    "revision": "054b72907ec697df5906",
+    "revision": "83b29791e74dd6dbebf6",
     "url": "/game-jam/static/css/main.6fea1ff5.chunk.css"
   },
   {
-    "revision": "752565173c2641bd5483",
-    "url": "/game-jam/static/js/2.fec6e9fd.chunk.js"
+    "revision": "bcd44235a502ee8848a6",
+    "url": "/game-jam/static/js/2.68955741.chunk.js"
   },
   {
-    "revision": "054b72907ec697df5906",
-    "url": "/game-jam/static/js/main.31368002.chunk.js"
+    "revision": "83b29791e74dd6dbebf6",
+    "url": "/game-jam/static/js/main.5a083279.chunk.js"
   },
   {
     "revision": "7437032db67c6f911e12",
