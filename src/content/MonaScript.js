@@ -39,7 +39,7 @@ module.exports = {
       [MONA, "I live in the forest"],
       [MONA, "and I hunt for fun"],
 
-      [ME,   "Now youre joking for sure"],
+      [ME,   "now youre joking for sure"],
 
       [MONA, "Haha, you caught me."],
       [MONA, "I'm just a barista"],
@@ -51,7 +51,7 @@ module.exports = {
 
   barista: {
     messages: [
-      [ME,   " Yeah I saw you're a barista, right?"],
+      [ME,   " yeah I saw you're a barista, right?"],
 
       [MONA, "Yup, been at my barista job the whole day."],
 

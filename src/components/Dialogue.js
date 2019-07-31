@@ -68,7 +68,6 @@ class Dialogue extends React.PureComponent {
             <div className={`message ${nameClass}`} key={index}>{text}</div>
           )
         })}
-        <br/>
       </div>
     )
   }
